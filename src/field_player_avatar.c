@@ -277,9 +277,9 @@ static const u8 sRSAvatarGfxIds[GENDER_COUNT] =
     [FEMALE] = OBJ_EVENT_GFX_LINK_RS_MAY
 };
 
-static const struct __attribute__((packed))
+static const struct PACKED
 {
-    u8 graphicsId;
+    u16 graphicsId;
     u8 playerFlag;
 } sPlayerAvatarGfxToStateFlag[GENDER_COUNT][5] =
 {
@@ -845,10 +845,10 @@ static void PlayerNotOnBikeMoving(u8 direction, u16 heldKeys)
     }
 
     if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_UNDERWATER)
-     && (heldKeys & B_BUTTON) 
+     && (heldKeys & B_BUTTON)
      && FlagGet(FLAG_SYS_B_DASH)
-     && IsRunningDisallowed(gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior) == 0 
-     && !FollowerNPCComingThroughDoor() 
+     && IsRunningDisallowed(gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior) == 0
+     && !FollowerNPCComingThroughDoor()
      && (I_ORAS_DOWSING_FLAG == 0 || (I_ORAS_DOWSING_FLAG != 0 && !FlagGet(I_ORAS_DOWSING_FLAG))))
     {
         if (ObjectMovingOnRockStairs(&gObjectEvents[gPlayerAvatar.objectEventId], direction))
